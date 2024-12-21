@@ -46,9 +46,14 @@ const getObject = function (info) {
   return { name: info[0], contactno: info[1], age: info[2], address: info[3] };
 };
 
+const getObject2 = function (info) {
+  return { name: info[0], contactno: info[1], age: info[2], address: info[3], guardiancontactno: info[4][0], guardianname: info[4][1] };
+};
 
 
-const objectList = informations.map(getObject);
+// const objectList = informations.map(getObject);
 
-console.log(objectList.filter(isAgeMoreThan(20)));
+// console.log(objectList.filter(isAgeMoreThan(20)));
+
+console.log(infoWithGuardian.map(getObject).filter(invert(isAgeMoreThan(30))));
 
