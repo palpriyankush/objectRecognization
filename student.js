@@ -6,15 +6,14 @@ const informations = [
   ["Eve", "5432109876", 28, "202 Birch Boulevard, Star City"],
   ["Frank", "4321098765", 31, "303 Cedar Drive, Central City"],
   ["Grace", "3210987654", 18, "404 Willow Way, Coast City"],
-  ["Hank", "2109876543", 45, "505 Aspen Circle, Riverdale"],
+  ["Hank", "2109876543", 17, "505 Aspen Circle, Riverdale"],
   ["Ivy", "1098765432", 23, "606 Fir Terrace, Hill Valley"],
   ["Jack", "0198765431", 37, "707 Spruce Court, Twin Peaks"]
 ];
 
 const isAgeMoreThan = function (limit) {
   return function (info) {
-    const age = info[2];
-    return age > limit;
+    return info.age > limit;
   };
 };
 
@@ -39,4 +38,17 @@ const infoWithGuardian = [
   ["Veer", "0198765431", 37, "707 Lodhi Road, Chandigarh", ["9023456789", "Manju"]]
 ];
 
-console.log(infoWithGuardian.filter(invert(isAgeMoreThan(30))));
+// console.log(infoWithGuardian.filter(invert(isAgeMoreThan(30))));
+
+// using object
+
+const getObject = function (info) {
+  return { name: info[0], contactno: info[1], age: info[2], address: info[3] };
+};
+
+
+
+const objectList = informations.map(getObject);
+
+console.log(objectList.filter(isAgeMoreThan(20)));
+
